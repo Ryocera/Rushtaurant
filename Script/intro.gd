@@ -55,8 +55,10 @@ func _input(event):
 			current_line += 1
 			type_next_line()
 
-func _on_skip_button_pressed():
-	go_to_menu()
 
 func go_to_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+
+func _on_skip_pressed() -> void:
+	go_to_menu()

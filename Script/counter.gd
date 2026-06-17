@@ -36,3 +36,8 @@ func _input(event):
 
 func customer_arrived(customer):
 	customer_queue.append(customer)
+	
+func customer_left(customer):
+	if customer_queue.has(customer):
+		customer_queue.erase(customer)
+		print("Customer keluar dari antrian! Sisa: ", customer_queue.size())

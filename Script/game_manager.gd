@@ -67,7 +67,7 @@ func start_game():
 
 func next_stage() -> bool:
 	if current_stage < Stage.STAGE_3:
-		current_stage += 1
+		current_stage = (current_stage + 1) as Stage
 		start_game()
 		return true
 	return false

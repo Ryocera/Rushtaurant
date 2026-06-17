@@ -21,19 +21,19 @@ func format_rupiah(amount: int) -> String:
 
 func _on_again_pressed() -> void:
 	GameManager.start_game()
-	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
 func _on_next_pressed() -> void:
 	if not GameManager.next_stage():
-		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 	else:
-		get_tree().change_scene_to_file("res://Scenes/main.tscn")
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 
 func _on_quit_pressed() -> void:
 	GameManager.set_stage(GameManager.Stage.STAGE_1)
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 
 func _on_pressed() -> void:

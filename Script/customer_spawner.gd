@@ -1,8 +1,8 @@
 extends Node2D
 
-const ALEX = preload("res://Scenes/Npc/alex.tscn")
-const AMELIA = preload("res://Scenes/Npc/amelia.tscn")
-const BOB = preload("res://Scenes/Npc/bob.tscn")
+const ALEX = preload("res://scenes/Npc/alex.tscn")
+const AMELIA = preload("res://scenes/Npc/amelia.tscn")
+const BOB = preload("res://scenes/Npc/bob.tscn")
 
 var customers = [ALEX, AMELIA, BOB]
 var queue = []

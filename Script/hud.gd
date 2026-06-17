@@ -7,17 +7,16 @@ extends CanvasLayer
 var score = 0
 
 func _ready():
-	print("HUD ready!")
-	GameManager.game_over.connect(_on_game_over)
-	GameManager.start_game()
-	print("Game started! Time: ", GameManager.game_time)
 	progress_bar.visible = false
 	progress_bar.max_value = 3.0
 	progress_bar.value = 0.0
 	score_label.text = "Rp 0"
 	timer_label.text = "60"
 	
-	GameManager.game_over.connect(_on_game_over)
+	# cek dulu sebelum connect
+	if not GameManager.game_over.is_connected(_on_game_over):
+		GameManager.game_over.connect(_on_game_over)
+	
 	GameManager.start_game()
 	
 	var stoves = get_tree().get_nodes_in_group("stove")

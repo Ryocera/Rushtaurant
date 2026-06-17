@@ -101,6 +101,9 @@ func leave_angry():
 	is_waiting = false
 	order_bubble.visible = false
 	emit_signal("customer_served", self)
+	var counter = get_tree().get_first_node_in_group("counter")
+	if counter:
+		counter.customer_left(self)
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.add_score(-5000)
