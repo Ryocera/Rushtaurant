@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://gi77j7e8k115"]
+
+[ext_resource type="Script" uid="uid://dvt03gs2c13be" path="res://Script/counter.gd" id="1_c31wn"]
+[ext_resource type="AudioStream" uid="uid://bxccjpgc1gcwr" path="res://assets/audio/Sfx/order.mp3" id="2_k3xsv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_drxil"]
+size = Vector2(121.84375, 130)
+
+[node name="counter" type="Area2D" unique_id=767874318 groups=["counter"]]
+script = ExtResource("1_c31wn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2021717912 groups=["counter"]]
+position = Vector2(9.921875, -11)
+shape = SubResource("RectangleShape2D_drxil")
+
+[node name="OrderSound" type="AudioStreamPlayer2D" parent="." unique_id=1803917167]
+stream = ExtResource("2_k3xsv")

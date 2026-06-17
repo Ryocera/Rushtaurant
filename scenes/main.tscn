@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b0xnheh7mym2y"]
+
+[ext_resource type="PackedScene" uid="uid://b8nmkmbw8io5a" path="res://scenes/restaurant.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://dk0s4vjstm13t" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://7igg06h1clcn" path="res://scenes/Objects/stove.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://gi77j7e8k115" path="res://scenes/Objects/counter.tscn" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://c5xxxc764yo4x" path="res://Script/hud.gd" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://nvdwx8vbfwu0" path="res://Script/customer_spawner.gd" id="8_tipki"]
+
+[node name="Main" type="Node2D" unique_id=510164293]
+
+[node name="World" parent="." unique_id=306079415 instance=ExtResource("1_0wfyh")]
+position = Vector2(2, -7)
+
+[node name="player" parent="." unique_id=704968508 instance=ExtResource("1_o5qli")]
+position = Vector2(779, 187)
+scale = Vector2(4.5, 4.5)
+collision_layer = 2
+
+[node name="Stove" parent="." unique_id=1854297450 instance=ExtResource("3_sugp2")]
+position = Vector2(558, 267)
+collision_layer = 8
+collision_mask = 3
+
+[node name="Stove2" parent="." unique_id=382660695 instance=ExtResource("3_sugp2")]
+position = Vector2(633, 266)
+collision_layer = 8
+collision_mask = 2
+
+[node name="counter" parent="." unique_id=767874318 instance=ExtResource("4_jyhfs")]
+position = Vector2(909, 310)
+collision_layer = 8
+collision_mask = 6
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1096400331 groups=["hud"]]
+script = ExtResource("7_o6xl0")
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD" unique_id=1882613240]
+offset_left = 621.0
+offset_top = 259.0
+offset_right = 656.0
+offset_bottom = 286.0
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1495499030]
+offset_left = 1075.0
+offset_top = 12.0
+offset_right = 1115.0
+offset_bottom = 35.0
+scale = Vector2(1.5, 1.5)
+
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=2071647735]
+offset_left = 533.0
+offset_top = 13.0
+offset_right = 715.0
+offset_bottom = 46.0
+
+[node name="CustomerSpawner" type="Node2D" parent="." unique_id=1200257838]
+script = ExtResource("8_tipki")
+
+[node name="SpawnTimer" type="Timer" parent="CustomerSpawner" unique_id=1037905807]

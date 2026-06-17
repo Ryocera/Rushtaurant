@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cljjwj8un30fk"]
+
+[ext_resource type="AudioStream" uid="uid://cqnavkgc4emr1" path="res://assets/audio/BGM/Bgm.mp3" id="1_tn5dr"]
+[ext_resource type="Script" uid="uid://fnnuh7nr577d" path="res://Script/music_manager.gd" id="2_hetdf"]
+
+[node name="music_manager" type="AudioStreamPlayer2D" unique_id=1605204931]
+stream = ExtResource("1_tn5dr")
+autoplay = true
+script = ExtResource("2_hetdf")

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cimiapgxl810i"]
+
+[ext_resource type="Script" uid="uid://cuoopeaslwwtw" path="res://Script/difficulty_menu.gd" id="1_uu84u"]
+[ext_resource type="PackedScene" uid="uid://b8nmkmbw8io5a" path="res://scenes/restaurant.tscn" id="2_ugo8b"]
+[ext_resource type="Texture2D" uid="uid://2k3ejehg1n5v" path="res://assets/images/ui/Buttons.png" id="3_w5ek2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkx4s"]
+atlas = ExtResource("3_w5ek2")
+region = Rect2(15.768793, 450.85144, 31.46034, 12.337402)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w74tr"]
+atlas = ExtResource("3_w5ek2")
+region = Rect2(16.790234, 451.5296, 31.151905, 11.412109)
+
+[node name="Difficulty_Menu" type="Node2D" unique_id=1713077827]
+script = ExtResource("1_uu84u")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1312356467]
+offset_right = 1150.0
+offset_bottom = 648.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=453807165]
+handle_input_locally = false
+size = Vector2i(1150, 648)
+render_target_update_mode = 4
+
+[node name="Restaurant" parent="SubViewportContainer/SubViewport" unique_id=306079415 instance=ExtResource("2_ugo8b")]
+
+[node name="Control" type="Control" parent="." unique_id=353900186]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 315.0
+offset_top = 194.0
+offset_right = 843.0
+offset_bottom = 509.0
+
+[node name="easy" type="TextureButton" parent="Control" unique_id=949288150]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 141.0
+offset_right = 221.0
+offset_bottom = 153.0
+scale = Vector2(7, 7)
+texture_normal = SubResource("AtlasTexture_qkx4s")
+
+[node name="Label" type="Label" parent="Control/easy" unique_id=717611975]
+layout_mode = 0
+offset_left = 6.714286
+offset_top = -1.0000014
+offset_right = 41.714287
+offset_bottom = 21.999998
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Easy"
+
+[node name="hard" type="TextureButton" parent="Control" unique_id=2051919725]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 246.0
+offset_right = 223.0
+offset_bottom = 257.0
+scale = Vector2(7, 7)
+texture_normal = SubResource("AtlasTexture_w74tr")
+
+[node name="Label" type="Label" parent="Control/hard" unique_id=613204874]
+layout_mode = 0
+offset_left = 5.7142854
+offset_top = -2.2857141
+offset_right = 45.714287
+offset_bottom = 20.714287
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hard"
+
+[connection signal="pressed" from="Control/easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="Control/hard" to="." method="_on_hard_pressed"]

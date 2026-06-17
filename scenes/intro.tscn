@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cqr1ciwv54qgs"]
+
+[ext_resource type="Script" uid="uid://bym1jnk6odb7v" path="res://Script/intro.gd" id="1_ioskq"]
+
+[node name="intro" type="Control" unique_id=1719601689]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ioskq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1615137179]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 647.0
+color = Color(0, 0, 0, 1)
+
+[node name="StoryLabel" type="Label" parent="." unique_id=731226685]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 640.0
+horizontal_alignment = 1
+vertical_alignment = 1

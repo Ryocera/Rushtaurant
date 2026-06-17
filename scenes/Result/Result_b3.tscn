@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://d37lqyqx7grcp"]
+
+[ext_resource type="PackedScene" uid="uid://b8nmkmbw8io5a" path="res://scenes/restaurant.tscn" id="1_5cuc5"]
+[ext_resource type="Script" uid="uid://dlxwtp6vdcv8t" path="res://Script/result.gd" id="1_h5i4p"]
+[ext_resource type="Texture2D" uid="uid://x1qvfb50d05x" path="res://assets/images/ui/Win_loose.png" id="2_jeryg"]
+[ext_resource type="Texture2D" uid="uid://2k3ejehg1n5v" path="res://assets/images/ui/Buttons.png" id="4_qfsnx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5i4p"]
+atlas = ExtResource("2_jeryg")
+region = Rect2(234.38245, 106.86377, 88.41925, 72.0269)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2ttt"]
+atlas = ExtResource("2_jeryg")
+region = Rect2(114.66228, 300.42084, 29.30751, 14.9021)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8ts"]
+atlas = ExtResource("2_jeryg")
+region = Rect2(110.24688, 328.14478, 34.27488, 20.36621)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c5qt"]
+atlas = ExtResource("4_qfsnx")
+region = Rect2(16.762802, 434.42416, 31.608192, 13.000153)
+
+[node name="Node2D" type="Node2D" unique_id=8447036]
+script = ExtResource("1_h5i4p")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=627069629]
+offset_right = 1150.0
+offset_bottom = 648.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=757867272]
+handle_input_locally = false
+size = Vector2i(1150, 648)
+render_target_update_mode = 4
+
+[node name="Restaurant" parent="SubViewportContainer/SubViewport" unique_id=306079415 instance=ExtResource("1_5cuc5")]
+
+[node name="Control" type="Control" parent="." unique_id=927329931]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 353.0
+offset_top = 190.0
+offset_right = 894.0
+offset_bottom = 526.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1250780546]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 9.0
+offset_right = 471.0
+offset_bottom = 333.0
+texture = SubResource("AtlasTexture_h5i4p")
+
+[node name="Again" type="TextureButton" parent="Control" unique_id=24702310]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 177.0
+offset_right = 118.0
+offset_bottom = 191.0
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_u2ttt")
+
+[node name="Next" type="TextureButton" parent="Control" unique_id=824581454]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 158.0
+offset_right = 320.0
+offset_bottom = 178.0
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_aw8ts")
+
+[node name="ScoreLabel" type="Label" parent="Control" unique_id=1437974176]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 35.0
+offset_right = 414.0
+offset_bottom = 81.0
+text = "
+"
+
+[node name="Quit" type="TextureButton" parent="Control" unique_id=462374968]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 241.99998
+offset_right = 215.0
+offset_bottom = 254.99998
+scale = Vector2(5, 5)
+texture_normal = SubResource("AtlasTexture_8c5qt")
+
+[node name="StageLabel" type="Label" parent="Control" unique_id=1578025657]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 34.0
+offset_right = 417.0
+offset_bottom = 57.0
+
+[connection signal="pressed" from="Control/Again" to="." method="_on_again_pressed"]
+[connection signal="pressed" from="Control/Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]

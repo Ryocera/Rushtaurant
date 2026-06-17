@@ -1,0 +1,12 @@
+# Godot
+.godot/
+*.import
+export_presets.cfg
+
+# Editor
+.vscode/
+.idea/
+
+# Build
+build/
+export/

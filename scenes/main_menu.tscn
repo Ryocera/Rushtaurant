@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b7rhicmai63s2"]
+
+[ext_resource type="Script" uid="uid://b154efvlncksi" path="res://Script/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://b8nmkmbw8io5a" path="res://scenes/restaurant.tscn" id="2_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://2k3ejehg1n5v" path="res://assets/images/ui/Buttons.png" id="2_ekxnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqqt6"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(12.980545, 417.81873, 55.54428, 13.998962)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu84c"]
+atlas = ExtResource("2_ekxnf")
+region = Rect2(13.215937, 401.62048, 56.43051, 13.080627)
+
+[node name="Main Menu" type="Node2D" unique_id=1324748233]
+script = ExtResource("1_l6cm7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1865638258]
+offset_right = 1150.0
+offset_bottom = 648.0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1453745336]
+handle_input_locally = false
+size = Vector2i(1150, 648)
+render_target_update_mode = 4
+
+[node name="Restaurant" parent="SubViewportContainer/SubViewport" unique_id=306079415 instance=ExtResource("2_bqqt6")]
+
+[node name="Control" type="Control" parent="." unique_id=49377700]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Start" type="TextureButton" parent="Control" unique_id=2037772033]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 11.031
+anchor_top = 10.594001
+anchor_right = 11.031
+anchor_bottom = 10.594001
+offset_left = -18.332977
+offset_top = -61.76004
+offset_right = 35.167023
+offset_bottom = -48.76004
+scale = Vector2(6, 6)
+texture_normal = SubResource("AtlasTexture_bqqt6")
+
+[node name="Label" type="Label" parent="Control/Start" unique_id=1815776845]
+layout_mode = 0
+offset_left = 19.49999
+offset_top = -0.8333333
+offset_right = 57.499992
+offset_bottom = 22.166666
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Start"
+horizontal_alignment = 1
+
+[node name="Quit" type="TextureButton" parent="Control" unique_id=46577710]
+layout_mode = 0
+offset_left = 461.0
+offset_top = 464.0
+offset_right = 517.0
+offset_bottom = 477.0
+scale = Vector2(6, 6)
+texture_normal = SubResource("AtlasTexture_wu84c")
+
+[connection signal="pressed" from="Control/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Control/Quit" to="." method="_on_quit_pressed"]
